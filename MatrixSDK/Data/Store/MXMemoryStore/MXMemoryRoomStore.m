@@ -123,6 +123,19 @@
             }
         }
     }
+    else
+    {
+        // Check messages from the most recent
+        for (NSInteger i = messages.count - 1; i >= 0 ; i--)
+        {
+            MXEvent *event = messages[i];
+            
+            if ((!types || [types containsObject:event.type]) && ![event.sender isEqualToString:userId])
+            {
+                [list insertObject:event atIndex:0];
+            }
+        }
+    }
 
     return list;
 }

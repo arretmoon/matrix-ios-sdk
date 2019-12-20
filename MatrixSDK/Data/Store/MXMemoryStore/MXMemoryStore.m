@@ -253,8 +253,8 @@
     {
         MXReceiptData* data = [receipsByUserId objectForKey:credentials.userId];
         
-        if (data)
-        {
+//        if (data)
+//        {
             // Check the current stored events (by ignoring oneself events)
             NSArray *array = [store eventsAfter:data.eventId except:credentials.userId withTypeIn:[NSSet setWithArray:types]];
             
@@ -266,7 +266,7 @@
                     count ++;
                 }
             }
-        }
+//        }
     }
    
     return count;
